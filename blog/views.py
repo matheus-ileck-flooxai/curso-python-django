@@ -5,12 +5,21 @@ from django.shortcuts import render
 def blog(request):
     return render(
         request,
-        'blog/index.html'
+        'blog/index.html',
+        {
+            'texto': 'Olá Blog',
+            'title': 'Essa é uma pagina de exemplo'
+        }
     )
 
 
 def exemplo(request):
     return render(
         request,
-        'blog/exemplo.html'
+        'blog/exemplo.html',
+        {
+            'texto': 'Olá exemplo do Blog',
+            'title': 'Essa é uma pagina de exemplo'
+
+        }
     )

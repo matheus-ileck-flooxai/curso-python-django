@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from blog.data import posts
+from typing import Any
 # Create your views here.
 
 def blog(request):
@@ -14,16 +15,26 @@ def blog(request):
     )
 
 
-def post(request, id):
+def post(request, post_id):
 
+    found_post: dict[str, Any] | None = None
+
+    for post in posts:
+        if post['id'] == post_id:
+            found_post = post
+            break
+
+    if found_post is None:
+        raise Exception('Post não existe.')
+    
     context =  {
-            'title': 'Essa é uma pagina de exemplo',
-            'posts': posts
+            'post': found_post,
+            'title': found_post['title'] + ' - '
     }
 
     return render(
         request,
-        'blog/index.html',
+        'blog/post.html',
         context
     )
 

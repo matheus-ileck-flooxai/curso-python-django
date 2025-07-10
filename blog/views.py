@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from blog.data import posts
 # Create your views here.
 
 def blog(request):
@@ -8,7 +8,8 @@ def blog(request):
         'blog/index.html',
         {
             'texto': 'Olá Blog',
-            'title': 'Essa é uma pagina de exemplo'
+            'title': 'Essa é uma pagina de exemplo',
+            'posts': posts
         }
     )
 

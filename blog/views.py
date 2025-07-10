@@ -14,6 +14,20 @@ def blog(request):
     )
 
 
+def post(request, id):
+
+    context =  {
+            'title': 'Essa é uma pagina de exemplo',
+            'posts': posts
+    }
+
+    return render(
+        request,
+        'blog/index.html',
+        context
+    )
+
+
 def exemplo(request):
     return render(
         request,
@@ -24,3 +38,4 @@ def exemplo(request):
 
         }
     )
+

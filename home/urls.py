@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-# MVT (MVC)
+app_name = 'home'
 
 
 urlpatterns = [
